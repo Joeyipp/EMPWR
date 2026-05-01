@@ -2,7 +2,9 @@
 
 > **Hosted version available at [withempwr.com](https://withempwr.com/)**
 
-EMPWR is an AI-powered knowledge graph development platform that transforms unstructured, semi-structured, and structured data (text, documents, images, and web pages, etc) into interactive, visually explorable knowledge graphs.
+EMPWR is a knowledge graph (KG) development platform that supports the creation, enrichment, management, and maintenance of large-scale KGs. It utilizes a Neuro-symbolic approach to automate and scale the KG development process. The platform is designed to be domain-agnostic and handle data from unstructured, semi-structured, and structured sources.
+
+**[Wiki Page](https://wiki.aiisc.ai/index.php?title=EMPWR:_Knowledge_Graph_Development_Platform)**
 
 **[Watch the demo on YouTube](https://www.youtube.com/watch?v=PtB09317B_U)**
 
