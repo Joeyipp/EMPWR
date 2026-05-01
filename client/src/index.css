@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Animation for background blobs */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  /* Highlight animation for text entities */
+  @keyframes highlight-pulse {
+    0% {
+      background: rgba(250, 204, 21, 0.3);
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+    }
+    50% {
+      background: rgba(251, 191, 36, 0.5);
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.7);
+    }
+    100% {
+      background: rgba(250, 204, 21, 0.3);
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+    }
+  }
+  
+  /* Glassmorphism styles */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Custom Scrollbar styling for a consistent purple theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6d28d9 #1f1f2e;
+}
+
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e2d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d28d9;
+  border-radius: 10px;
+  border: 2px solid #1e1e2d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Always visible purple themed scrollbar for all panels */
+.custom-scrollbar,
+.custom-scrollbar-dark {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.4) rgba(17, 24, 39, 0.2); /* Always visible purple scrollbar */
+  transition: scrollbar-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar,
+.custom-scrollbar-dark::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.custom-scrollbar-dark::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.2); /* Subtle dark track */
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.custom-scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 92, 246, 0.4); /* Default purple thumb */
+  border-radius: 8px;
+}
+
+.custom-scrollbar:hover,
+.custom-scrollbar:active,
+.custom-scrollbar:focus,
+.custom-scrollbar-dark:hover,
+.custom-scrollbar-dark:active,
+.custom-scrollbar-dark:focus {
+  scrollbar-color: rgba(139, 92, 246, 0.7) rgba(17, 24, 39, 0.3); /* Brighter on hover */
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb,
+.custom-scrollbar:active::-webkit-scrollbar-thumb,
+.custom-scrollbar:focus::-webkit-scrollbar-thumb,
+.custom-scrollbar-dark:hover::-webkit-scrollbar-thumb,
+.custom-scrollbar-dark:active::-webkit-scrollbar-thumb,
+.custom-scrollbar-dark:focus::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 92, 246, 0.7); /* Brighter thumb on hover */
+  border-radius: 8px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-default {
+    -ms-overflow-style: auto !important;
+    scrollbar-width: thin !important;
+  }
+  
+  .scrollbar-default::-webkit-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+    display: block !important;
+  }
+  
+  .scrollbar-default::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.5) !important;
+    border-radius: 8px !important;
+  }
+  
+  .scrollbar-default::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.7) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(129, 140, 248, 0.8) !important;
+  }
+  
+  .scrollbar-default::-webkit-scrollbar-thumb:hover {
+    background: rgba(129, 140, 248, 0.9) !important;
+  }
+  
+  /* Sleek scrollbar for KnowledgeGraphExplorer */
+  .kg-scrollbar {
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    -ms-overflow-style: auto !important;
+    scrollbar-width: thin !important;
+  }
+  
+  .kg-scrollbar::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    display: block !important;
+  }
+  
+  .kg-scrollbar::-webkit-scrollbar-track {
+    background: rgba(30, 41, 59, 0.3) !important;
+    border-radius: 10px !important;
+  }
+  
+  .kg-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.5) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(139, 92, 246, 0.6) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .kg-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 0.8) !important;
+  }
+  
+  /* Force scrollbars to be visible but sleek */
+  .force-scrollbar {
+    scrollbar-width: thin !important;
+    -ms-overflow-style: auto !important;
+  }
+  
+  /* Smaller scrollbar for panels */
+  .kg-scrollbar-xs {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -ms-overflow-style: auto !important;
+    scrollbar-width: thin !important;
+  }
+  
+  .kg-scrollbar-xs::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    display: block !important;
+  }
+  
+  .kg-scrollbar-xs::-webkit-scrollbar-track {
+    background: rgba(30, 41, 59, 0.2) !important;
+    border-radius: 5px !important;
+  }
+  
+  .kg-scrollbar-xs::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.4) !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .kg-scrollbar-xs::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.6) !important;
+  }
+  
+  /* Canvas background color */
+  .bg-gray-850 {
+    background-color: #1a1d2b;
+  }
+  
+  /* Apply sleek scrollbars to specific containers */
+  div[role="tabpanel"] {
+    overflow: auto !important;
+    scrollbar-width: thin !important;
+    -ms-overflow-style: auto !important;
+  }
+  
+  div[role="tabpanel"]::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    display: block !important;
+  }
+  
+  div[role="tabpanel"]::-webkit-scrollbar-track {
+    background: rgba(30, 41, 59, 0.2) !important;
+    border-radius: 10px !important;
+  }
+  
+  div[role="tabpanel"]::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.5) !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  div[role="tabpanel"]::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.7) !important;
+  }
+  
+  /* Direct targeting table containers with sleek scrollbars */
+  .overflow-auto {
+    overflow: auto !important;
+    scrollbar-width: thin !important;
+    -ms-overflow-style: auto !important;
+  }
+  
+  .overflow-auto::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    display: block !important;
+  }
+  
+  .overflow-auto::-webkit-scrollbar-track {
+    background: rgba(30, 41, 59, 0.2) !important;
+    border-radius: 10px !important;
+  }
+  
+  .overflow-auto::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.5) !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .overflow-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.7) !important;
+  }
+  
+  /* Show styled scrollbar on hover */
+  .hover\:scrollbar-default:hover {
+    scrollbar-width: thin; /* Firefox */
+    -ms-overflow-style: auto; /* IE/Edge */
+  }
+
+  .hover\:scrollbar-default:hover::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+    height: 10px;
+  }
+
+  .hover\:scrollbar-default:hover::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.4);
+    border-radius: 8px;
+  }
+
+  .hover\:scrollbar-default:hover::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(59, 130, 246, 0.7);
+  }
+
+  .hover\:scrollbar-default:hover::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.8);
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.4s ease-out;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.4s ease-out;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.4s ease-out;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse 2s infinite;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSlight 2s infinite;
+  }
+
+  .animate-scale {
+    animation: scale 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideLeft {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes bounceSlight {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes scale {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
+  }
+}
